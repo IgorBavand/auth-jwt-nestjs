@@ -13,11 +13,13 @@ export class UsersService {
   ) {}
 
 
-  //async findOne(username: string): Promise<User | undefined> {
-  //   return this.usersRepository.find();
-  //}
+  async findByEmail(email: string): Promise<User | undefined> {
+    return this.usersRepository.findOne( {where:{email}});
+  }
 
-  findAll(): Promise<User[]> {
+
+    
+  async findAll(): Promise<User[]> {
     return this.usersRepository.find();
   }
 }
